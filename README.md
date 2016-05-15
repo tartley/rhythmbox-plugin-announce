@@ -13,10 +13,13 @@ Install the 'espeak' speech synthesiser:
 
     sudo apt-get install espeak
 
-Then install this plugin:
+Clone this repo, if you haven't already:
 
     cd /tmp
     git clone https://github.com/tartley/rhythmbox-plugin-announce.git
     cd rhythmbox-plugin-announce
+
+Then install the plugin:
+
     cp announce* ~/.local/share/rhythmbox/plugins
 
