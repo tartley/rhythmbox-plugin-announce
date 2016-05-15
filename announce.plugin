@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python3
+Module=announce
+IAge=2
+Name=Announce
+Description=Speech synthesiser announces each song as it starts. Requires you 'sudo apt-get install espeak'.
+Authors=Jonathan Hartley <tartley@tartley.com>
+Copyright=Copyright © 2016 Jonathan Hartley, BSD Licensed to you.
+Website=http://tartley.com/
