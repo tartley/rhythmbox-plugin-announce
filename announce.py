@@ -30,22 +30,21 @@ class AnnouncePlugin(GObject.Object, Peas.Activatable):
 
     def do_activate(self):
         self.player = self.object.props.shell_player
-        self.handler = self.player.connect(
+        self.handle = self.player.connect(
             'playing-changed', self.on_playing_changed
         )
-        espeak('Activated')
 
     def do_deactivate(self):
-        self.player.disconnect(self.handler)
-        espeak('Deactivated')
+        self.player.disconnect(self.handle)
 
     def on_playing_changed(self, player, playing):
-        entry = self.player.get_playing_entry()
-        if playing and entry != self.prev_entry:
-            announce(
-                entry.get_string(RB.RhythmDBPropType.TITLE),
-                entry.get_string(RB.RhythmDBPropType.ALBUM),
-                entry.get_string(RB.RhythmDBPropType.ARTIST),
-            )
-        self.prev_entry = entry
+        if playing:
+            entry = self.player.get_playing_entry()
+            if entry != self.prev_entry:
+                announce(
+                    entry.get_string(RB.RhythmDBPropType.TITLE),
+                    entry.get_string(RB.RhythmDBPropType.ALBUM),
+                    entry.get_string(RB.RhythmDBPropType.ARTIST),
+                )
+                self.prev_entry = entry
 
