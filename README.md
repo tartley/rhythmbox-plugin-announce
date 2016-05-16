@@ -23,3 +23,8 @@ Then install the plugin:
 
     cp announce* ~/.local/share/rhythmbox/plugins
 
+# Contact
+
+Jonathan Hartley
+Email: tartley@tartley.com
+Twitter: @tartley
