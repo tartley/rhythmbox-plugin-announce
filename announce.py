@@ -2,8 +2,13 @@ import subprocess
 from gi.repository import GObject, RB, Peas
 
 
+process = None
+
 def espeak(text):
-    subprocess.Popen('espeak -v mb/mb-us2 -s 240 -a 150'.split() + [text])
+    global process
+    if process:
+        process.kill()
+    process = subprocess.Popen('espeak -v mb/mb-us2 -s 240 -a 150'.split() + [text])
 
 
 prev_album = None
